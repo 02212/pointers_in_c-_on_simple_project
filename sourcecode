@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int computePremium(int* customerAge, int* currYear);
+
+int main()
+{
+    int age, thisYear;
+    cout << "Enter current year:";
+    cin >> thisYear;
+    cout << "Enter year of birth:";
+    cin >> age;
+
+    float premiumAmt = computePremium(&age,&thisYear);
+    cout << "The premium is: R" << premiumAmt;
+    return 0;
+}
+
+int computePremium(int* customerAge, int* currYear) {
+    float decade = currYear - customerAge;
+    int premium = decade / 10 + 15 * 20;
+    return premium;
+}
